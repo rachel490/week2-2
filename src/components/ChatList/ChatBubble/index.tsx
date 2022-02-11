@@ -6,6 +6,8 @@ import { TiDeleteOutline } from 'react-icons/ti';
 import ModalPotal from 'components/shared/ModalPortal';
 import Modal from 'components/shared/Modal';
 import RemoveMessageModal from 'components/RemoveMessageModal';
+import { useDispatch } from 'react-redux';
+import { selectedMessage } from 'store/messenger';
 import { Message } from '../mockData';
 import {
   ChatBubbleContainer,
@@ -24,13 +26,19 @@ interface ChatBubbleProp {
 
 function ChatBubble({ message, mine }: ChatBubbleProp) {
   const [isOpened, setIsOpened] = useState(false);
+  const dispatch = useDispatch();
 
   function onRemoveClick() {
     setIsOpened(!isOpened);
   }
 
-  function onReplyClick(messageId: number) {
-    console.log(messageId, 'add comment');
+  function onReplyClick(message: Message) {
+    const currentMessage = {
+      userName: message.user.userName,
+      replyContent: message.content,
+      profileImage: message.user.profileImage,
+    };
+    dispatch(selectedMessage(currentMessage));
   }
 
   return (
@@ -61,7 +69,7 @@ function ChatBubble({ message, mine }: ChatBubbleProp) {
             <TiDeleteOutline color="red" />
           </UtilBoxDelBtn>
         )}
-        <UtilBoxReplyBtn onClick={() => onReplyClick(message.id)}>
+        <UtilBoxReplyBtn onClick={() => onReplyClick(message)}>
           <BsReply />
         </UtilBoxReplyBtn>
       </ChatBubbleUtilBox>

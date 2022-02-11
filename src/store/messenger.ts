@@ -26,9 +26,17 @@ interface Message {
   content: string;
   replyUser?: ReplyUser;
 }
+
+interface CurrentMessage {
+  userName: string;
+  replyContent: string;
+  profileImage: string;
+}
+
 interface Messenger {
-  messages: Message[];
   currentUser: CurrentUser;
+  currentMessage: CurrentMessage | null;
+  messages: Message[];
 }
 
 export const messengerSlice = createSlice({
@@ -37,13 +45,16 @@ export const messengerSlice = createSlice({
   reducers: {
     // 메시지 입력
     addNewMessage: (state, action: PayloadAction<string>) => {
-      const newMessage = {
-        id: Date.now(),
-        date: new Date().toString(),
-        user: state.currentUser,
-        content: action.payload,
-      };
-      state.messages = [...state.messages, newMessage];
+      if (!state.currentMessage) {
+        const newMessage = {
+          id: Date.now(),
+          date: new Date().toString(),
+          user: state.currentUser,
+          content: action.payload,
+        } as Message;
+        state.messages = [...state.messages, newMessage]; // 원래로직
+        return state;
+      }
     },
     // 메시지 삭제
     removeMessage: (state, action: PayloadAction<number>) => {
@@ -51,8 +62,26 @@ export const messengerSlice = createSlice({
         (message) => message.id !== action.payload,
       );
     },
+    // 메세지 답글 요청
+    selectedMessage: (state, action: PayloadAction<CurrentMessage | null>) => {
+      state.currentMessage = action.payload;
+    },
+
     // 메시지 답글
-    addComment: () => {},
+    addComment: (state, action: PayloadAction<string>) => {
+      const newMessage = {
+        id: Date.now(),
+        date: new Date().toString(),
+        user: state.currentUser,
+        content: action.payload,
+        reply: {
+          userName: state.currentMessage?.userName,
+          profileImage: state.currentMessage?.profileImage,
+          replyContent: state.currentMessage?.replyContent,
+        },
+      };
+      state.messages = [...state.messages, newMessage];
+    },
     // 유저 추가
     addCurrentUser: (state, action: PayloadAction<string>) => {
       state.currentUser = {
@@ -64,6 +93,11 @@ export const messengerSlice = createSlice({
   },
 });
 
-export const { addNewMessage, removeMessage, addComment, addCurrentUser } =
-  messengerSlice.actions;
+export const {
+  addNewMessage,
+  removeMessage,
+  addComment,
+  addCurrentUser,
+  selectedMessage,
+} = messengerSlice.actions;
 export default messengerSlice.reducer;
