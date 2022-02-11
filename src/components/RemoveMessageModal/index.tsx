@@ -11,7 +11,7 @@ type Message = {
 function RemoveMessageModal({ messageId, message }: Message) {
   const dispatch = useDispatch();
   const slicedMessage =
-    message.length > 10 ? `${message.slice(0, 25)}...` : message;
+    message.length > 10 ? `${message.slice(0, 10)}...` : message;
 
   const onRemove = () => {
     dispatch(removeMessage(messageId));
