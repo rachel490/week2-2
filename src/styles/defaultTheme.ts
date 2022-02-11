@@ -6,6 +6,7 @@ const theme: DefaultTheme = {
     backgroundGray: '#F6F6F6',
     dimmGray: 'rgba(19, 19, 19, 0.49);',
     black: '#000000',
+    white: '#FFFFFF',
   },
   shadow: 'drop-shadow(1px 4px 4px rgba(0, 0, 0, 0.1));',
   border: {
