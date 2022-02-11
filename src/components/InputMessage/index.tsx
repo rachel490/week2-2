@@ -1,9 +1,10 @@
-import ChatReplyBuble from 'components/ChatList/ChstReplyBubble';
 import React, { useEffect, useRef, useState } from 'react';
-import { IoIosSend } from 'react-icons/io';
+import ChatReplyBuble from 'components/ChatList/ChstReplyBubble';
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment, addNewMessage, selectedMessage } from 'store/messenger';
 import { RootState } from 'store/store';
+import { IoIosSend } from 'react-icons/io';
+import { TiDeleteOutline } from 'react-icons/ti';
 import theme from 'styles/defaultTheme';
 import * as S from './styled';
 
@@ -52,35 +53,36 @@ function InputMessage() {
   return (
     <S.Form onSubmit={handleSubmit}>
       {currentMessage && (
-        <div>
+        <S.Container>
           <ChatReplyBuble reply={currentMessage} mine />
-          <div>
-            <button
-              type="button"
-              onClick={() => dispatch(selectedMessage(null))}
-            >
-              삭제
-            </button>
-          </div>
-        </div>
+          <button
+            className="deleteBtn"
+            type="button"
+            onClick={() => dispatch(selectedMessage(null))}
+          >
+            <TiDeleteOutline size={20} color="red" />
+          </button>
+        </S.Container>
       )}
-      <textarea
-        placeholder="메세지를 입력해주세요"
-        onKeyPress={onEnterPress}
-        onChange={handleChange}
-        value={message}
-        ref={textareaRef}
-      />
-      <button type="submit">
-        <IoIosSend
-          className="icon"
-          color={
-            message.length > 0
-              ? theme.color.primaryPurple
-              : theme.color.darkGrey
-          }
+      <S.Container>
+        <textarea
+          placeholder="메세지를 입력해주세요"
+          onKeyPress={onEnterPress}
+          onChange={handleChange}
+          value={message}
+          ref={textareaRef}
         />
-      </button>
+        <button type="submit">
+          <IoIosSend
+            className="icon"
+            color={
+              message.length > 0
+                ? theme.color.primaryPurple
+                : theme.color.darkGrey
+            }
+          />
+        </button>
+      </S.Container>
     </S.Form>
   );
 }
