@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { ModalPotalProps } from './types.js';
 
-// 모달창 -> style
 const Modal = ({ children }: ModalPotalProps) => {
   const modalEl: HTMLDivElement = document.createElement('div');
 

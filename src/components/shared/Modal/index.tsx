@@ -5,7 +5,7 @@ import * as Styled from './styled';
 
 function Modal({ children, onClose }: ModalProps) {
   return (
-    <Styled.Background>
+    <Styled.Background onClick={onClose}>
       <Styled.ModalContainer>
         <Styled.CloseButton>
           <IoMdClose onClick={onClose} />

@@ -10,12 +10,14 @@ interface User {
   userName: string;
   profileImage: string;
 }
+
 interface CurrentUser extends User {
   isLoggedIn: boolean;
 }
 interface ReplyUser extends User {
   replyContent: string;
 }
+
 interface Message {
   id: number;
   date: string;

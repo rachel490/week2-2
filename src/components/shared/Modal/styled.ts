@@ -11,6 +11,7 @@ export const Background = styled.div`
   height: 100vh;
   z-index: 1000;
   background-color: ${({ theme }) => theme.color.dimmGray};
+  filter: ${({ theme }) => theme.shadow};
 `;
 
 export const CloseButton = styled.div`
@@ -26,7 +27,7 @@ export const ModalContainer = styled.div`
   width: 306px;
   height: 132px;
   border-radius: ${({ theme }) => theme.border.radius};
-  background-color: ${({ theme }) => theme.color.backgroundGray};
+  background-color: ${({ theme }) => theme.color.whiteGrey};
 
   & > svg {
     cursor: pointer;
