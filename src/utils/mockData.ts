@@ -1,15 +1,15 @@
 export const initialState = {
   currentUser: {
-    isLoggedIn: false,
+    isLoggedIn: true,
     userId: 1,
-    userName: '',
+    userName: 'peter',
     profileImage: '',
   },
   currentMessage: null,
   messages: [
     {
       id: 1781497,
-      date: '2000-07-07 15:00:00',
+      date: 'Sat Feb 12 2022 00:01:59 GMT+0900 (한국 표준시)',
       user: {
         userId: 1,
         userName: 'peter',
@@ -20,7 +20,7 @@ export const initialState = {
     },
     {
       id: 1781498,
-      date: '2000-07-07 15:01:00',
+      date: 'Sat Feb 12 2022 00:02:59 GMT+0900 (한국 표준시)',
       user: {
         userId: 2,
         userName: 'paul',
@@ -38,7 +38,7 @@ export const initialState = {
     },
     {
       id: 1783022,
-      date: '2000-07-07 15:02:00',
+      date: 'Sat Feb 12 2022 00:03:59 GMT+0900 (한국 표준시)',
       user: {
         userId: 1,
         userName: 'ellith',
@@ -48,7 +48,7 @@ export const initialState = {
     },
     {
       id: 1781496,
-      date: '2000-07-07 15:03:30',
+      date: 'Sat Feb 12 2022 00:04:59 GMT+0900 (한국 표준시)',
       user: {
         userId: 3,
         userName: 'peter',
@@ -66,7 +66,7 @@ export const initialState = {
     },
     {
       id: 1781466,
-      date: '2000-07-07 15:04:00',
+      date: 'Sat Feb 12 2022 00:05:59 GMT+0900 (한국 표준시)',
       user: {
         userId: 2,
         userName: 'Paul',

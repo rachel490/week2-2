@@ -1,16 +1,8 @@
 import React from 'react';
-import { getImgFromPublic } from 'utils/utils';
+import { dateFormat, getImgFromPublic } from 'utils/utils';
 import ChatReplyBuble from '../ChstReplyBubble';
 import { Message } from '../mockData';
-import {
-  ChatBubbleContentStyled,
-  ChatBubbleProfileBox,
-  ChatBubbleProfileName,
-  ChatBubbleProfileTime,
-  ContentPre,
-  ProfileImg,
-  ProfileImgBox,
-} from './styled';
+import * as S from './styled';
 
 interface ChatBubbleContentProp {
   message: Message;
@@ -18,27 +10,29 @@ interface ChatBubbleContentProp {
 }
 
 function ChatBubbleContent({ message, mine }: ChatBubbleContentProp) {
+  const date = new Date(message.date);
+  const formattedDate = dateFormat(date);
   return (
     <div>
       {message.reply && <ChatReplyBuble reply={message.reply} mine={mine} />}
       <div>
-        <ChatBubbleProfileBox>
-          <ProfileImgBox>
-            <ProfileImg
+        <S.ChatBubbleProfileBox>
+          <S.ProfileImgBox>
+            <S.ProfileImg
               src={getImgFromPublic(message.user.profileImage)}
               alt="*"
             />
-          </ProfileImgBox>
-          <ChatBubbleProfileName>
+          </S.ProfileImgBox>
+          <S.ChatBubbleProfileName>
             <span>{message.user.userName}</span>
-          </ChatBubbleProfileName>
-          <ChatBubbleProfileTime>
-            <span>{message.date}</span>
-          </ChatBubbleProfileTime>
-        </ChatBubbleProfileBox>
-        <ChatBubbleContentStyled>
-          <ContentPre>{message.content}</ContentPre>
-        </ChatBubbleContentStyled>
+          </S.ChatBubbleProfileName>
+          <S.ChatBubbleProfileTime>
+            <span>{formattedDate}</span>
+          </S.ChatBubbleProfileTime>
+        </S.ChatBubbleProfileBox>
+        <S.ChatBubbleContentStyled>
+          <S.ContentPre>{message.content}</S.ContentPre>
+        </S.ChatBubbleContentStyled>
       </div>
     </div>
   );
