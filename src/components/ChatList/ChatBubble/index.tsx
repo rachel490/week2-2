@@ -1,6 +1,11 @@
-import React from 'react';
+/* eslint-disable no-console */
+/* eslint-disable react/jsx-no-bind */
+import React, { useState } from 'react';
 import { BsReply } from 'react-icons/bs';
 import { TiDeleteOutline } from 'react-icons/ti';
+import ModalPotal from 'components/shared/ModalPortal';
+import Modal from 'components/shared/Modal';
+import RemoveMessageModal from 'components/RemoveMessageModal';
 import { Message } from '../mockData';
 import {
   ChatBubbleContainer,
@@ -18,8 +23,10 @@ interface ChatBubbleProp {
 }
 
 function ChatBubble({ message, mine }: ChatBubbleProp) {
-  function onRemoveClick(messageId: number) {
-    console.log(messageId, 'is removed');
+  const [isOpened, setIsOpened] = useState(false);
+
+  function onRemoveClick() {
+    setIsOpened(!isOpened);
   }
 
   function onReplyClick(messageId: number) {
@@ -28,6 +35,16 @@ function ChatBubble({ message, mine }: ChatBubbleProp) {
 
   return (
     <ChatBubbleContainer>
+      {isOpened && (
+        <ModalPotal>
+          <Modal onClose={onRemoveClick}>
+            <RemoveMessageModal
+              messageId={message.id}
+              message={message.content}
+            />
+          </Modal>
+        </ModalPotal>
+      )}
       {mine ? (
         <MyChatBubble>
           <ChatBubbleContent message={message} mine={mine} />
@@ -40,7 +57,7 @@ function ChatBubble({ message, mine }: ChatBubbleProp) {
 
       <ChatBubbleUtilBox>
         {mine && (
-          <UtilBoxDelBtn onClick={() => onRemoveClick(message.id)}>
+          <UtilBoxDelBtn onClick={onRemoveClick}>
             <TiDeleteOutline color="red" />
           </UtilBoxDelBtn>
         )}
