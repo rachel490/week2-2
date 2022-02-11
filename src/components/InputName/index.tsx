@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCurrentUser } from 'store/messenger';
-import * as Styled from './styled';
+import * as S from './styled';
 
 function InputName() {
   const [inputValue, setInputValue] = useState('');
@@ -18,17 +18,17 @@ function InputName() {
   };
 
   return (
-    <Styled.InputNameContainer>
-      <Styled.ExplainText>이름을 입력해주세요.</Styled.ExplainText>
-      <Styled.NameInputForm onSubmit={handleSubmit}>
-        <Styled.NameInput
+    <S.InputNameContainer>
+      <S.ExplainText>이름을 입력해주세요.</S.ExplainText>
+      <S.NameInputForm onSubmit={handleSubmit}>
+        <S.NameInput
           value={inputValue}
           placeholder="한글자 이상 입력해주세요"
           onChange={handleChange}
         />
-        <Styled.Button onClick={handleSubmit}>확인</Styled.Button>
-      </Styled.NameInputForm>
-    </Styled.InputNameContainer>
+        <S.Button onClick={handleSubmit}>확인</S.Button>
+      </S.NameInputForm>
+    </S.InputNameContainer>
   );
 }
 export default InputName;

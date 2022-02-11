@@ -45,16 +45,13 @@ export const messengerSlice = createSlice({
   reducers: {
     // 메시지 입력
     addNewMessage: (state, action: PayloadAction<string>) => {
-      if (!state.currentMessage) {
-        const newMessage = {
-          id: Date.now(),
-          date: new Date().toString(),
-          user: state.currentUser,
-          content: action.payload,
-        } as Message;
-        state.messages = [...state.messages, newMessage]; // 원래로직
-        return state;
-      }
+      const newMessage = {
+        id: Date.now(),
+        date: new Date().toString(),
+        user: state.currentUser,
+        content: action.payload,
+      } as Message;
+      state.messages = [...state.messages, newMessage]; // 원래로직
     },
     // 메시지 삭제
     removeMessage: (state, action: PayloadAction<number>) => {

@@ -8,7 +8,7 @@ function Modal({ children, onClose }: ModalProps) {
     <Styled.Background onClick={onClose}>
       <Styled.ModalContainer>
         <Styled.CloseButton>
-          <IoMdClose onClick={onClose} />
+          {onClose && <IoMdClose onClick={onClose} />}
         </Styled.CloseButton>
         {children}
       </Styled.ModalContainer>
