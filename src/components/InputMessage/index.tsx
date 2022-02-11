@@ -1,22 +1,31 @@
+import ChatReplyBuble from 'components/ChatList/ChstReplyBubble';
 import React, { useEffect, useRef, useState } from 'react';
 import { IoIosSend } from 'react-icons/io';
-import { useDispatch } from 'react-redux';
-import { addNewMessage } from 'store/messenger';
+import { useDispatch, useSelector } from 'react-redux';
+import { addComment, addNewMessage, selectedMessage } from 'store/messenger';
+import { RootState } from 'store/store';
 import theme from 'styles/defaultTheme';
 import * as S from './styled';
 
-
-function Input() {
+function InputMessage() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
+  const currentMessage = useSelector(
+    (state: RootState) => state.messenger.currentMessage,
+  );
 
   const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) {
       e.preventDefault();
     }
     setMessage('');
-    dispatch(addNewMessage(message));
+    if (currentMessage) {
+      dispatch(addComment(message));
+    } else {
+      console.log('new message');
+      dispatch(addNewMessage(message));
+    }
   };
 
   const onEnterPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -24,6 +33,7 @@ function Input() {
       e.preventDefault();
       if (message) {
         handleSubmit();
+        console.log('pressed');
       }
     }
   };
@@ -43,6 +53,19 @@ function Input() {
 
   return (
     <S.Form onSubmit={handleSubmit}>
+      {currentMessage && (
+        <div>
+          <ChatReplyBuble reply={currentMessage} mine />
+          <div>
+            <button
+              type="button"
+              onClick={() => dispatch(selectedMessage(null))}
+            >
+              삭제
+            </button>
+          </div>
+        </div>
+      )}
       <textarea
         placeholder="메세지를 입력해주세요"
         onKeyDown={onEnterPress}
@@ -63,4 +86,4 @@ function Input() {
     </S.Form>
   );
 }
-export default Input;
+export default InputMessage;

@@ -1,12 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/store';
 import ChatBubble from './ChatBubble';
-import { Message } from './mockData';
 
-interface ChatListProp {
-  messages: Message[];
-}
+function ChatList() {
+  const messages = useSelector((state: RootState) => state.messenger.messages);
 
-function ChatList({ messages }: ChatListProp) {
   return (
     <div>
       {messages.map((message) => (

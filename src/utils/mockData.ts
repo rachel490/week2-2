@@ -5,6 +5,7 @@ export const initialState = {
     userName: '',
     profileImage: '',
   },
+  currentMessage: null,
   messages: [
     {
       id: 1781497,
