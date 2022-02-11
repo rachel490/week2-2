@@ -25,6 +25,7 @@ function ChatBubbleContent({ message, mine }: ChatBubbleContentProp) {
           </S.ProfileImgBox>
           <S.ChatBubbleProfileName>
             <span>{message.user.userName}</span>
+            <span>{mine && '*'}</span>
           </S.ChatBubbleProfileName>
           <S.ChatBubbleProfileTime>
             <span>{formattedDate}</span>
