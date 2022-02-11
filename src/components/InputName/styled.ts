@@ -36,7 +36,7 @@ export const NameInput = styled.input`
     font-size: ${theme.fontSize.xsmall};
 
     &: placeholder {
-      color: ${theme.color.backgroundGray};
+      color: ${theme.color.whiteGrey};
     }
   `}
 `;
@@ -46,7 +46,7 @@ export const Button = styled.button`
   height: 23px;
 
   ${({ theme }) => css`
-    background-color: ${theme.color.mainPurple};
+    background-color: ${theme.color.primaryPurple};
     color: ${theme.color.white};
     font-size: ${theme.fontSize.xsmall};
     border-radius: ${theme.border.radius};
