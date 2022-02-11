@@ -44,6 +44,7 @@ export const ProfileImg = styled.img`
 
 export const ReplyBubbleProfileName = styled.div`
   margin: 0px 5px 0px 5px;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
 export const ReplyBubbleContent = styled.div`

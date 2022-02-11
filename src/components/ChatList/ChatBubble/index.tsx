@@ -1,19 +1,16 @@
 import React from 'react';
-import img from 'assets/img/img.jpg';
+import { BsReply } from 'react-icons/bs';
+import { TiDeleteOutline } from 'react-icons/ti';
 import { Message } from '../mockData';
 import {
   ChatBubbleContainer,
-  ChatBubbleContent,
-  ChatBubbleProfileBox,
-  ChatBubbleProfileName,
-  ChatBubbleProfileTime,
-  ContentPre,
+  ChatBubbleUtilBox,
   MyChatBubble,
-  ProfileImg,
-  ProfileImgBox,
+  UtilBoxDelBtn,
+  UtilBoxReplyBtn,
   YourChatBubble,
 } from './styled';
-import ChatReplyBuble from '../ChstReplyBubble';
+import ChatBubbleContent from '../ChatBubbleContent';
 
 interface ChatBubbleProp {
   message: Message;
@@ -21,57 +18,36 @@ interface ChatBubbleProp {
 }
 
 function ChatBubble({ message, mine }: ChatBubbleProp) {
+  function onRemoveClick(messageId: number) {
+    console.log(messageId, 'is removed');
+  }
+
+  function onReplyClick(messageId: number) {
+    console.log(messageId, 'add comment');
+  }
+
   return (
     <ChatBubbleContainer>
       {mine ? (
-        <YourChatBubble>
-          {message.reply && (
-            <ChatReplyBuble reply={message.reply} mine={mine} />
-          )}
-          <div>
-            <ChatBubbleProfileBox>
-              <ProfileImgBox>
-                <ProfileImg src={img} alt="*" />
-              </ProfileImgBox>
-              <ChatBubbleProfileName>
-                <span>{message.user.userName}</span>
-              </ChatBubbleProfileName>
-              <ChatBubbleProfileTime>
-                <span>{message.date}</span>
-              </ChatBubbleProfileTime>
-            </ChatBubbleProfileBox>
-            <ChatBubbleContent>
-              <ContentPre>{message.content}</ContentPre>
-            </ChatBubbleContent>
-          </div>
-        </YourChatBubble>
-      ) : (
         <MyChatBubble>
-          {message.reply && (
-            <ChatReplyBuble reply={message.reply} mine={mine} />
-          )}
-          <div>
-            <ChatBubbleProfileBox>
-              <ProfileImgBox>
-                <ProfileImg src={img} alt="*" />
-              </ProfileImgBox>
-              <ChatBubbleProfileName>
-                <span>{message.user.userName}</span>
-              </ChatBubbleProfileName>
-              <ChatBubbleProfileTime>
-                <span>{message.date}</span>
-              </ChatBubbleProfileTime>
-            </ChatBubbleProfileBox>
-            <ChatBubbleContent>
-              <ContentPre>{message.content}</ContentPre>
-            </ChatBubbleContent>
-          </div>
+          <ChatBubbleContent message={message} mine={mine} />
         </MyChatBubble>
+      ) : (
+        <YourChatBubble>
+          <ChatBubbleContent message={message} mine={mine} />
+        </YourChatBubble>
       )}
-      <div>
-        <div>삭제</div>
-        <div>댓글</div>
-      </div>
+
+      <ChatBubbleUtilBox>
+        {mine && (
+          <UtilBoxDelBtn onClick={() => onRemoveClick(message.id)}>
+            <TiDeleteOutline color="red" />
+          </UtilBoxDelBtn>
+        )}
+        <UtilBoxReplyBtn onClick={() => onReplyClick(message.id)}>
+          <BsReply />
+        </UtilBoxReplyBtn>
+      </ChatBubbleUtilBox>
     </ChatBubbleContainer>
   );
 }

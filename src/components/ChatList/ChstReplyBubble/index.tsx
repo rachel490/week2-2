@@ -1,5 +1,6 @@
 import React from 'react';
 import img from 'assets/img/img.jpg';
+import { getImgFromPublic } from 'utils/utils';
 import {
   ProfileImg,
   ReplyBubbleBox,
@@ -9,7 +10,7 @@ import {
   ReplyProfileImgBox,
   YourReplyBubble,
 } from './styled';
-import { ContentPre } from '../ChatBubble/styled';
+import { ContentPre } from '../ChatBubbleContent/styled';
 
 interface ReplyBubleProps {
   userName: string;
@@ -26,24 +27,10 @@ function ChatReplyBuble({ reply, mine }: ReplyBubleProp) {
   return (
     <div>
       {mine ? (
-        <YourReplyBubble>
-          <ReplyBubbleProfileBox>
-            <ReplyProfileImgBox>
-              <ProfileImg src={img} alt="*" />
-            </ReplyProfileImgBox>
-            <ReplyBubbleProfileName>
-              <span>{reply.userName}</span>
-            </ReplyBubbleProfileName>
-          </ReplyBubbleProfileBox>
-          <ReplyBubbleContent>
-            <ContentPre>{reply.replyContent}</ContentPre>
-          </ReplyBubbleContent>
-        </YourReplyBubble>
-      ) : (
         <ReplyBubbleBox>
           <ReplyBubbleProfileBox>
             <ReplyProfileImgBox>
-              <ProfileImg src={img} alt="*" />
+              <ProfileImg src={getImgFromPublic(reply.profileImage)} alt="*" />
             </ReplyProfileImgBox>
             <ReplyBubbleProfileName>
               <span>{reply.userName}</span>
@@ -53,6 +40,20 @@ function ChatReplyBuble({ reply, mine }: ReplyBubleProp) {
             <ContentPre>{reply.replyContent}</ContentPre>
           </ReplyBubbleContent>
         </ReplyBubbleBox>
+      ) : (
+        <YourReplyBubble>
+          <ReplyBubbleProfileBox>
+            <ReplyProfileImgBox>
+              <ProfileImg src={getImgFromPublic(reply.profileImage)} alt="*" />
+            </ReplyProfileImgBox>
+            <ReplyBubbleProfileName>
+              <span>{reply.userName}</span>
+            </ReplyBubbleProfileName>
+          </ReplyBubbleProfileBox>
+          <ReplyBubbleContent>
+            <ContentPre>{reply.replyContent}</ContentPre>
+          </ReplyBubbleContent>
+        </YourReplyBubble>
       )}
     </div>
   );
