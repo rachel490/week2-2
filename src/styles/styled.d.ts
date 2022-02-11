@@ -3,15 +3,12 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     color: {
-      primaryPurple: string;
-      lightPurple: string;
-      whiteGrey: string;
-      white: string;
-      darkGrey: string;
-      mediumGrey: string;
+      mainPurple: string;
+      backgroundGray: string;
+      dimmGray: string;
       black: string;
     };
-    boxShadow: string;
+    shadow: string;
     border: {
       radius: string;
     };
