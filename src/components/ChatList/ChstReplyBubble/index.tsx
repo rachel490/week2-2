@@ -1,15 +1,6 @@
 import React from 'react';
-import img from 'assets/img/img.jpg';
 import { getImgFromPublic } from 'utils/utils';
-import {
-  ProfileImg,
-  ReplyBubbleBox,
-  ReplyBubbleContent,
-  ReplyBubbleProfileBox,
-  ReplyBubbleProfileName,
-  ReplyProfileImgBox,
-  YourReplyBubble,
-} from './styled';
+import * as S from './styled';
 import { ContentPre } from '../ChatBubbleContent/styled';
 
 interface ReplyBubleProps {
@@ -27,33 +18,39 @@ function ChatReplyBuble({ reply, mine }: ReplyBubleProp) {
   return (
     <div>
       {mine ? (
-        <ReplyBubbleBox>
-          <ReplyBubbleProfileBox>
-            <ReplyProfileImgBox>
-              <ProfileImg src={getImgFromPublic(reply.profileImage)} alt="*" />
-            </ReplyProfileImgBox>
-            <ReplyBubbleProfileName>
+        <S.ReplyBubbleBox>
+          <S.ReplyBubbleProfileBox>
+            <S.ReplyProfileImgBox>
+              <S.ProfileImg
+                src={getImgFromPublic(reply.profileImage)}
+                alt="*"
+              />
+            </S.ReplyProfileImgBox>
+            <S.ReplyBubbleProfileName>
               <span>{reply.userName}</span>
-            </ReplyBubbleProfileName>
-          </ReplyBubbleProfileBox>
-          <ReplyBubbleContent>
+            </S.ReplyBubbleProfileName>
+          </S.ReplyBubbleProfileBox>
+          <S.ReplyBubbleContent>
             <ContentPre>{reply.replyContent}</ContentPre>
-          </ReplyBubbleContent>
-        </ReplyBubbleBox>
+          </S.ReplyBubbleContent>
+        </S.ReplyBubbleBox>
       ) : (
-        <YourReplyBubble>
-          <ReplyBubbleProfileBox>
-            <ReplyProfileImgBox>
-              <ProfileImg src={getImgFromPublic(reply.profileImage)} alt="*" />
-            </ReplyProfileImgBox>
-            <ReplyBubbleProfileName>
+        <S.YourReplyBubble>
+          <S.ReplyBubbleProfileBox>
+            <S.ReplyProfileImgBox>
+              <S.ProfileImg
+                src={getImgFromPublic(reply.profileImage)}
+                alt="*"
+              />
+            </S.ReplyProfileImgBox>
+            <S.ReplyBubbleProfileName>
               <span>{reply.userName}</span>
-            </ReplyBubbleProfileName>
-          </ReplyBubbleProfileBox>
-          <ReplyBubbleContent>
+            </S.ReplyBubbleProfileName>
+          </S.ReplyBubbleProfileBox>
+          <S.ReplyBubbleContent>
             <ContentPre>{reply.replyContent}</ContentPre>
-          </ReplyBubbleContent>
-        </YourReplyBubble>
+          </S.ReplyBubbleContent>
+        </S.YourReplyBubble>
       )}
     </div>
   );

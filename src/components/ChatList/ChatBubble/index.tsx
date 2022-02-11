@@ -9,14 +9,7 @@ import RemoveMessageModal from 'components/RemoveMessageModal';
 import { useDispatch } from 'react-redux';
 import { selectedMessage } from 'store/messenger';
 import { Message } from '../mockData';
-import {
-  ChatBubbleContainer,
-  ChatBubbleUtilBox,
-  MyChatBubble,
-  UtilBoxDelBtn,
-  UtilBoxReplyBtn,
-  YourChatBubble,
-} from './styled';
+import * as S from './styled';
 import ChatBubbleContent from '../ChatBubbleContent';
 
 interface ChatBubbleProp {
@@ -42,7 +35,7 @@ function ChatBubble({ message, mine }: ChatBubbleProp) {
   }
 
   return (
-    <ChatBubbleContainer>
+    <S.ChatBubbleContainer>
       {isOpened && (
         <ModalPotal>
           <Modal onClose={onRemoveClick}>
@@ -54,26 +47,32 @@ function ChatBubble({ message, mine }: ChatBubbleProp) {
         </ModalPotal>
       )}
       {mine ? (
-        <MyChatBubble>
-          <ChatBubbleContent message={message} mine={mine} />
-        </MyChatBubble>
+        <S.MyChatBubbleBlock>
+          <S.MyChatBubble>
+            <ChatBubbleContent message={message} mine={mine} />
+          </S.MyChatBubble>
+          <S.ChatBubbleUtilBox>
+            <S.UtilBoxDelBtn onClick={onRemoveClick}>
+              <TiDeleteOutline color="red" />
+            </S.UtilBoxDelBtn>
+            <S.UtilBoxReplyBtn onClick={() => onReplyClick(message)}>
+              <BsReply />
+            </S.UtilBoxReplyBtn>
+          </S.ChatBubbleUtilBox>
+        </S.MyChatBubbleBlock>
       ) : (
-        <YourChatBubble>
-          <ChatBubbleContent message={message} mine={mine} />
-        </YourChatBubble>
+        <S.YourChatBubbleBlock>
+          <S.YourChatBubble>
+            <ChatBubbleContent message={message} mine={mine} />
+          </S.YourChatBubble>
+          <S.ChatBubbleUtilBox>
+            <S.UtilBoxReplyBtn onClick={() => onReplyClick(message)}>
+              <BsReply />
+            </S.UtilBoxReplyBtn>
+          </S.ChatBubbleUtilBox>
+        </S.YourChatBubbleBlock>
       )}
-
-      <ChatBubbleUtilBox>
-        {mine && (
-          <UtilBoxDelBtn onClick={onRemoveClick}>
-            <TiDeleteOutline color="red" />
-          </UtilBoxDelBtn>
-        )}
-        <UtilBoxReplyBtn onClick={() => onReplyClick(message)}>
-          <BsReply />
-        </UtilBoxReplyBtn>
-      </ChatBubbleUtilBox>
-    </ChatBubbleContainer>
+    </S.ChatBubbleContainer>
   );
 }
 

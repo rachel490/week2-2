@@ -2,11 +2,18 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
 import ChatBubble from './ChatBubble';
-import { ChatListView } from './styled';
+import * as S from './styled';
 
 function ChatList() {
   const messages = useSelector((state: RootState) => state.messenger.messages);
+  const currentUser = useSelector(
+    (state: RootState) => state.messenger.currentUser,
+  );
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  function isMe(targetName: string) {
+    return currentUser.userName === targetName;
+  }
 
   const scrollToBottom = useCallback(() => {
     if (messages) {
@@ -23,11 +30,15 @@ function ChatList() {
   }, [messages, scrollToBottom]);
 
   return (
-    <ChatListView ref={scrollRef}>
+    <S.ChatListView ref={scrollRef}>
       {messages.map((message) => (
-        <ChatBubble key={message.id} message={message} mine />
+        <ChatBubble
+          key={message.id}
+          message={message}
+          mine={isMe(message.user.userName)}
+        />
       ))}
-    </ChatListView>
+    </S.ChatListView>
   );
 }
 
