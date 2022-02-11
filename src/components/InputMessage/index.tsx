@@ -1,17 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { IoIosSend } from 'react-icons/io';
+import { useDispatch } from 'react-redux';
+import { addNewMessage } from 'store/messenger';
 import theme from 'styles/defaultTheme';
 import * as S from './styled';
+
 
 function Input() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [message, setMessage] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) {
       e.preventDefault();
     }
     setMessage('');
+    dispatch(addNewMessage(message));
   };
 
   const onEnterPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {

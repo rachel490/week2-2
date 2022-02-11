@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCurrentUser } from 'store/messenger';
 import * as Styled from './styled';
 
 function InputName() {
   const [inputValue, setInputValue] = useState('');
+  const dispatch = useDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -11,7 +14,7 @@ function InputName() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Dispatch
+    dispatch(addCurrentUser(inputValue));
   };
 
   return (
