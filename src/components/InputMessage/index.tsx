@@ -23,7 +23,6 @@ function InputMessage() {
     if (currentMessage) {
       dispatch(addComment(message));
     } else {
-      console.log('new message');
       dispatch(addNewMessage(message));
     }
   };
@@ -33,7 +32,6 @@ function InputMessage() {
       e.preventDefault();
       if (message) {
         handleSubmit();
-        console.log('pressed');
       }
     }
   };
