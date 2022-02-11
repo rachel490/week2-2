@@ -66,7 +66,7 @@ function InputMessage() {
       )}
       <textarea
         placeholder="메세지를 입력해주세요"
-        onKeyDown={onEnterPress}
+        onKeyPress={onEnterPress}
         onChange={handleChange}
         value={message}
         ref={textareaRef}
