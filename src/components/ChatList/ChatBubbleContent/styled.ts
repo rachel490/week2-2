@@ -30,7 +30,7 @@ export const ChatBubbleProfileTime = styled.div`
   margin-left: 3px;
   margin-bottom: 0.5px;
   font-size: ${({ theme }) => theme.fontSize.xsmall};
-  color: ${({ theme }) => theme.color.whiteGrey};
+  color: ${({ theme }) => theme.color.backgroundGray};
 `;
 
 export const ChatBubbleContentStyled = styled.div`

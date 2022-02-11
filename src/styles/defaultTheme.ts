@@ -6,6 +6,7 @@ const theme: DefaultTheme = {
     lightPurple: '#9E81EA',
     whiteGrey: '#F6F6F6',
     white: '#FFFFFF',
+
     dimmGray: 'rgba(19, 19, 19, 0.49);',
     darkGrey: '#3B3B3D',
     mediumGrey: '#7B7B83',
