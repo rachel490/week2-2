@@ -7,6 +7,7 @@ declare module 'styled-components' {
       backgroundGray: string;
       dimmGray: string;
       black: string;
+      white: string;
     };
     shadow: string;
     border: {
