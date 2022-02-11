@@ -1,9 +1,9 @@
 export const initialState = {
   currentUser: {
-    isLoggedIn: true,
-    userId: 1,
-    userName: 'peter',
-    profileImage: '',
+    isLoggedIn: false,
+    userId: 4,
+    userName: '',
+    profileImage: 'assets/img/myImg.jpg',
   },
   currentMessage: null,
   messages: [
