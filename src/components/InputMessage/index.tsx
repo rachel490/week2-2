@@ -23,6 +23,7 @@ function InputMessage() {
     setMessage('');
     if (currentMessage) {
       dispatch(addComment(message));
+      dispatch(selectedMessage(null));
     } else {
       dispatch(addNewMessage(message));
     }
