@@ -16,7 +16,6 @@ interface ReplyBubleProp {
 
 function ChatReplyBuble({ reply, mine }: ReplyBubleProp) {
   return (
-
     <S.Wrap>
       {mine ? (
         <S.ReplyBubbleBox>
