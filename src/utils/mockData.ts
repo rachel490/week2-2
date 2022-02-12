@@ -17,7 +17,7 @@ export const initialState = {
       },
       content:
         "Ipsum as their default model text, and a search for 'lorem ipsu",
-      reply: {
+      replyUser: {
         userId: 2,
         userName: 'peter',
         profileImage: 'assets/img/img.jpg',
@@ -51,8 +51,8 @@ export const initialState = {
       date: 'Sat Feb 12 2022 00:03:59 GMT+0900 (한국 표준시)',
       user: {
         userId: 1,
-        userName: 'peter',
-        profileImage: 'assets/img/img.jpg',
+        userName: 'ellith',
+        profileImage: 'assets/img/img3.jpg',
       },
       content:
         'hello! when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ce',
@@ -67,7 +67,7 @@ export const initialState = {
       },
       content:
         "it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-      reply: {
+      replyUser: {
         userId: 2,
         userName: 'ellith',
         profileImage: 'assets/img/img3.jpg',

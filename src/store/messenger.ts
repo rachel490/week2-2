@@ -40,18 +40,20 @@ export const messengerSlice = createSlice({
       state.currentMessage = action.payload;
     },
     addComment: (state, action: PayloadAction<string>) => {
-      const newMessage = {
-        id: Date.now(),
-        date: new Date().toString(),
-        user: state.currentUser,
-        content: action.payload,
-        reply: {
-          userName: state.currentMessage?.userName,
-          profileImage: state.currentMessage?.profileImage,
-          replyContent: state.currentMessage?.replyContent,
-        },
-      };
-      state.messages = [...state.messages, newMessage];
+      if (state.currentMessage) {
+        const newMessage = {
+          id: Date.now(),
+          date: new Date().toString(),
+          user: state.currentUser,
+          content: action.payload,
+          replyUser: {
+            userName: state.currentMessage.userName,
+            profileImage: state.currentMessage.profileImage,
+            replyContent: state.currentMessage.replyContent,
+          },
+        };
+        state.messages = [...state.messages, newMessage];
+      }
     },
     addCurrentUser: (state, action: PayloadAction<string>) => {
       state.currentUser = {
