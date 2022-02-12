@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
 import { BsReply } from 'react-icons/bs';
 import { TiDeleteOutline } from 'react-icons/ti';

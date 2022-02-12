@@ -4,7 +4,11 @@ import { RootState } from 'store/store';
 import ChatBubble from './ChatBubble';
 import * as S from './styled';
 
-function ChatList() {
+type Scroll = {
+  scroll: number;
+};
+
+function ChatList({ scroll }: Scroll) {
   const messages = useSelector((state: RootState) => state.messenger.messages);
   const currentUser = useSelector(
     (state: RootState) => state.messenger.currentUser,
@@ -27,7 +31,7 @@ function ChatList() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, scrollToBottom]);
+  }, [messages, scrollToBottom, scroll]);
 
   return (
     <S.ChatListView ref={scrollRef}>

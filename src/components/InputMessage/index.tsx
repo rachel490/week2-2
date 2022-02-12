@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ChatReplyBuble from 'components/ChatList/ChstReplyBubble';
+import ChatReplyBuble from 'components/ChatList/ChatReplyBubble';
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment, addNewMessage, selectedMessage } from 'store/messenger';
 import { RootState } from 'store/store';
@@ -8,7 +8,11 @@ import { TiDeleteOutline } from 'react-icons/ti';
 import theme from 'styles/defaultTheme';
 import * as S from './styled';
 
-function InputMessage() {
+type Scroll = {
+  setScroll: (scroll: number) => void;
+};
+
+function InputMessage({ setScroll }: Scroll) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
@@ -51,6 +55,7 @@ function InputMessage() {
     if (textareaRef && textareaRef.current) {
       textareaRef.current.style.height = '0px';
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+      setScroll(textareaRef.current.scrollHeight);
     }
   }, [message]);
 
@@ -58,7 +63,9 @@ function InputMessage() {
     <S.Form onSubmit={handleSubmit}>
       {currentMessage && (
         <S.Container>
-          <ChatReplyBuble reply={currentMessage} mine />
+          <S.ReplyWrap>
+            <ChatReplyBuble reply={currentMessage} mine />
+          </S.ReplyWrap>
           <button
             className="deleteBtn"
             type="button"

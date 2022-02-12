@@ -1,6 +1,6 @@
 import React from 'react';
 import { dateFormat, getImgFromPublic } from 'utils/utils';
-import ChatReplyBuble from '../ChstReplyBubble';
+import ChatReplyBuble from '../ChatReplyBubble';
 import { Message } from '../mockData';
 import * as S from './styled';
 

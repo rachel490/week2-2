@@ -1,13 +1,8 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: fixed;
   bottom: 50px;
-  left: 50%;
-  transform: translate(-50%, 0);
 `;
 
 export const Container = styled.div`
@@ -21,7 +16,7 @@ export const Container = styled.div`
   }
 
   textarea {
-    width: 500px;
+    width: 580px;
     max-height: 200px;
     resize: none;
     outline: none;
@@ -29,6 +24,10 @@ export const Container = styled.div`
     padding: 10px 20px 15px 20px;
     border-radius: ${({ theme }) => theme.border.radius};
     background-color: ${({ theme }) => theme.color.whiteGrey};
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   button {
@@ -38,8 +37,12 @@ export const Container = styled.div`
 
   .icon {
     position: fixed;
-    bottom: 8px;
+    bottom: 51px;
     height: 30px;
     width: 30px;
   }
+`;
+
+export const ReplyWrap = styled.div`
+  width: 580px;
 `;

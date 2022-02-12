@@ -36,7 +36,7 @@ export const ChatBubbleProfileTime = styled.div`
 export const ChatBubbleContentStyled = styled.div`
   width: 96%;
   margin-left: 17px;
-  margin-right: 17px;
+  padding-right: 14px;
   margin-top: 9px;
 `;
 
@@ -44,4 +44,5 @@ export const ContentPre = styled.div`
   overflow: auto;
   overflow-y: hidden;
   white-space: pre-wrap;
+  word-break: break-all;
 `;
