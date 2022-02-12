@@ -20,6 +20,9 @@ function InputMessage() {
     if (e) {
       e.preventDefault();
     }
+    if (!message) {
+      return;
+    }
     setMessage('');
     if (currentMessage) {
       dispatch(addComment(message));
