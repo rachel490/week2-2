@@ -12,7 +12,7 @@
 | :----------: | :----------: | :----------: | :----------: |
 |<img src="https://avatars.githubusercontent.com/u/67543454?v=4" width=100 alt="_"/>| <img src="https://avatars.githubusercontent.com/u/72786354?v=4" width=100 alt="_"/> |<img src="https://avatars.githubusercontent.com/u/57760806?v=4" width=100 alt="_"/> | <img src="https://avatars.githubusercontent.com/u/63578094?v=4" width=100 alt="_"/>|
 |   Redux/모달창 세팅,메시지 삭제 확인 모달창 구현 |  메시지 입력창 구현 |  Redux/모달창 세팅,유저네임 입력 모달창 구현 |  채팅창 구현|
-| [Github](https://github.com/Gayun00) |[Github](https://github.com/rachel490) |[Github](https://github.com/Sunjae95) |[Github](https://github.com/Han-D-Peter)|
+| [Github](https://github.com/Gayun00) |[Github](https://github.com/rachel490) |[Github](https://github.com/Han-D-Peter) |[Github](https://github.com/Sunjae95)|
 
 
 <br />
