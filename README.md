@@ -12,7 +12,7 @@
 |   이가윤     |      신혜리   |     한재성    |     이선재    |
 | :----------: | :----------: | :----------: | :----------: |
 |<img src="https://avatars.githubusercontent.com/u/67543454?v=4" width=100 alt="_"/>| <img src="https://avatars.githubusercontent.com/u/72786354?v=4" width=100 alt="_"/> |<img src="https://avatars.githubusercontent.com/u/57760806?v=4" width=100 alt="_"/> | <img src="https://avatars.githubusercontent.com/u/63578094?v=4" width=100 alt="_"/>|
-|   Redux/모달창 세팅,메시지 삭제 확인 모달창 구현 |  메시지 입력창 구현 |  Redux/모달창 세팅,유저네임 입력 모달창 구현 |  채팅창 구현|
+|   Redux/모달창 세팅,<br/>메시지 삭제 확인 모달창 구현 |  메시지 입력창 구현 | 채팅창 구현 | Redux/모달창 세팅,<br/>유저네임 입력 모달창 구현 |
 | [Github](https://github.com/Gayun00) |[Github](https://github.com/rachel490) |[Github](https://github.com/Han-D-Peter) |[Github](https://github.com/Sunjae95)|
 
 
@@ -45,6 +45,7 @@
     - 삭제 버튼 클릭시 삭제할 메시지와 함께 '메시지를 삭제 하시겠습니까?' 출력, 응답시 삭제
     - 삭제할 메시지 내용은 최대 10자 이후 ...처리
    
+<br />
 
 |  유저네임 입력/ 대화창 메시지 표시  |  메시지 입력  |
 | :------------: | :----------: |
@@ -64,11 +65,12 @@
     - [이선재, 이가윤] Redux 초기세팅, 공통 모달창 세팅
     - [이선재] 유저네임 입력 모달창
     - [이가윤] 메시지 삭제 확인 모달창
+
 - 공통 진행
     - 초기세팅, 메시지 데이터 모델 정의
     - 초기세팅된 Redux의 reducer, action 정의 및 각자 맡은 영역에 적용
-
     - Vsc Liveshare를 활용해 페어프로그래밍 진행
+ 
 <br />
 
 ### 협업 툴
@@ -108,8 +110,41 @@
 ## 📘 기타 사항
 
 ### 디렉토리 구조
-<img width="670" alt="스크린샷 2022-02-12 오후 12 33 31" src="https://user-images.githubusercontent.com/67543454/153695159-8de57fd1-01ad-4007-90cc-e99148783f98.png">
+```jsx
 
+├── App.tsx
+├── components
+│   ├── ChatList
+│   │   ├── ChatBubble
+│   │   │   ├── index.tsx
+│   │   │   └── styled.ts
+│   │   ├── ChatBubbleContent
+│   │   ├── ChatReplyBubble   
+│   │   ├── index.tsx
+│   │   └── styled.ts
+│   ├── ChatRoom
+│   ├── InputMessage 
+│   ├── InputName  
+│   ├── RemoveMessageModal
+│   └── shared
+│       ├── Modal
+│       ├── ModalPortal
+│       └── index.tsx
+├── index.tsx
+├── react-app-env.d.ts
+├── store
+│   ├── messenger.ts
+│   ├── store.ts
+│   └── types.ts
+├── styles
+│   ├── defaultTheme.ts
+│   ├── globalStyle.ts
+│   └── styled.d.ts
+└── utils
+    ├── constants.ts
+    ├── mockData.ts
+    └── utils.ts
+```
 
 <br />
 
