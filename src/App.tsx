@@ -11,7 +11,9 @@ function App() {
   const { isLoggedIn } = useSelector(
     (state: RootState) => state.messenger.currentUser,
   );
+  const { messages } = useSelector((state: RootState) => state.messenger);
 
+  console.log(messages);
   return (
     <div>
       {!isLoggedIn ? (

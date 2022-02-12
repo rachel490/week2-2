@@ -1,7 +1,8 @@
 import React from 'react';
+import { Message } from 'store/types';
 import { dateFormat, getImgFromPublic } from 'utils/utils';
-import ChatReplyBuble from '../ChstReplyBubble';
-import { Message } from '../mockData';
+import ChatReplyBuble from '../ChatReplyBubble';
+
 import * as S from './styled';
 
 interface ChatBubbleContentProp {
@@ -14,7 +15,9 @@ function ChatBubbleContent({ message, mine }: ChatBubbleContentProp) {
   const formattedDate = dateFormat(date);
   return (
     <div>
-      {message.reply && <ChatReplyBuble reply={message.reply} mine={mine} />}
+      {message.replyUser && (
+        <ChatReplyBuble reply={message.replyUser} mine={mine} />
+      )}
       <div>
         <S.ChatBubbleProfileBox>
           <S.ProfileImgBox>
