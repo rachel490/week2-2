@@ -3,7 +3,7 @@
 <br />
 
 ## 🖥&nbsp;&nbsp;배포 주소
-👉 [배포링크 바로가기](https://6206f05011a330006fb5d879--cocky-tereshkova-18cead.netlify.app/)
+👉 [배포링크 바로가기](https://react18-swit-messenger.netlify.app)
 
 <br />
 
