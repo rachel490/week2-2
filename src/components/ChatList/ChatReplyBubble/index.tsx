@@ -16,7 +16,8 @@ interface ReplyBubleProp {
 
 function ChatReplyBuble({ reply, mine }: ReplyBubleProp) {
   return (
-    <div>
+
+    <S.Wrap>
       {mine ? (
         <S.ReplyBubbleBox>
           <S.ReplyBubbleProfileBox>
@@ -52,7 +53,7 @@ function ChatReplyBuble({ reply, mine }: ReplyBubleProp) {
           </S.ReplyBubbleContent>
         </S.YourReplyBubble>
       )}
-    </div>
+    </S.Wrap>
   );
 }
 

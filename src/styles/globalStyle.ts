@@ -8,10 +8,13 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    font-size: 14px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
-
+  
   body {
+    font-size: 14px;
     font-family: 'Roboto', sans-serif;
     color: ${({ theme }) => theme.color.black};
   }

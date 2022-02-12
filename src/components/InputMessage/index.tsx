@@ -8,7 +8,11 @@ import theme from 'styles/defaultTheme';
 import ChatReplyBuble from 'components/ChatList/ChatReplyBubble';
 import * as S from './styled';
 
-function InputMessage() {
+type Scroll = {
+  setScroll: (scroll: number) => void;
+};
+
+function InputMessage({ setScroll }: Scroll) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
@@ -51,6 +55,7 @@ function InputMessage() {
     if (textareaRef && textareaRef.current) {
       textareaRef.current.style.height = '0px';
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+      setScroll(textareaRef.current.scrollHeight);
     }
   }, [message]);
 
@@ -58,7 +63,9 @@ function InputMessage() {
     <S.Form onSubmit={handleSubmit}>
       {currentMessage && (
         <S.Container>
-          <ChatReplyBuble reply={currentMessage} mine />
+          <S.ReplyWrap>
+            <ChatReplyBuble reply={currentMessage} mine />
+          </S.ReplyWrap>
           <button
             className="deleteBtn"
             type="button"

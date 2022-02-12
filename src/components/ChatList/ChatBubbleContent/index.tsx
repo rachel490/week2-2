@@ -2,7 +2,6 @@ import React from 'react';
 import { Message } from 'store/types';
 import { dateFormat, getImgFromPublic } from 'utils/utils';
 import ChatReplyBuble from '../ChatReplyBubble';
-
 import * as S from './styled';
 
 interface ChatBubbleContentProp {

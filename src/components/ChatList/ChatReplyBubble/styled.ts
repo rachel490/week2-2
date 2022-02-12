@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+export const Wrap = styled.div`
+  width: 100%;
+`;
 
 export const ReplyBubbleBox = styled.div`
   background-color: ${({ theme }) => theme.color.lightPurple};
   border-radius: ${({ theme }) => theme.border.radius};
-  font-size: ${({ theme }) => theme.fontSize.xsmall};
+  font-size: 11px;
   box-shadow: 0px 0px 7px 3px #5b4693 inset;
   border-style: inset;
   color: ${({ theme }) => theme.color.white};
@@ -15,7 +18,7 @@ export const ReplyBubbleBox = styled.div`
 export const YourReplyBubble = styled.div`
   background-color: ${({ theme }) => theme.color.mediumGrey};
   border-radius: ${({ theme }) => theme.border.radius};
-  font-size: ${({ theme }) => theme.fontSize.xsmall};
+  font-size: 11px;
   box-shadow: 0px 0px 4px 3px #22222d inset;
   border-style: inset;
   color: ${({ theme }) => theme.color.white};

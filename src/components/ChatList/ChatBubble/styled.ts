@@ -18,7 +18,7 @@ export const YourChatBubbleBlock = styled.div`
 `;
 
 export const MyChatBubble = styled.div`
-  width: 400px;
+  width: 250px;
   background-color: ${({ theme }) => theme.color.primaryPurple};
   border-radius: ${({ theme }) => theme.border.radius};
   color: ${({ theme }) => theme.color.white};
@@ -26,7 +26,7 @@ export const MyChatBubble = styled.div`
 `;
 
 export const YourChatBubble = styled.div`
-  width: 400px;
+  width: 250px;
   background-color: ${({ theme }) => theme.color.darkGrey};
   border-radius: ${({ theme }) => theme.border.radius};
   color: ${({ theme }) => theme.color.white};
