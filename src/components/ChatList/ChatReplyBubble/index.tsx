@@ -1,16 +1,11 @@
 import React from 'react';
 import { getImgFromPublic } from 'utils/utils';
+import { ReplyUser } from 'store/types';
 import * as S from './styled';
 import { ContentPre } from '../ChatBubbleContent/styled';
 
-interface ReplyBubleProps {
-  userName: string;
-  replyContent: string;
-  profileImage: string;
-}
-
 interface ReplyBubleProp {
-  reply: ReplyBubleProps;
+  reply: ReplyUser;
   mine: boolean;
 }
 
