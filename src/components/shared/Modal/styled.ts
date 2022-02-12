@@ -23,9 +23,9 @@ export const CloseButton = styled.div`
 export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 15px;
-  width: 306px;
-  height: 132px;
+  padding: 20px;
+  width: 350px;
+  height: 150px;
   border-radius: ${({ theme }) => theme.border.radius};
   background-color: ${({ theme }) => theme.color.whiteGrey};
 
