@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCurrentUser } from 'store/messenger';
+import { addCurrentUser, sortTime } from 'store/messenger';
 import * as S from './styled';
 
 function InputName() {
@@ -15,6 +15,7 @@ function InputName() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(addCurrentUser(inputValue));
+    dispatch(sortTime());
   };
 
   return (
