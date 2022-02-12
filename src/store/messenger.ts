@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { initialState } from '../utils/mockData';
 import { CurrentMessage, Message, Messenger } from './types';
@@ -40,15 +41,16 @@ export const messengerSlice = createSlice({
       state.currentMessage = action.payload;
     },
     addComment: (state, action: PayloadAction<string>) => {
+      if (!state.currentMessage) return state;
       const newMessage = {
         id: Date.now(),
         date: new Date().toString(),
         user: state.currentUser,
         content: action.payload,
-        reply: {
-          userName: state.currentMessage?.userName,
-          profileImage: state.currentMessage?.profileImage,
-          replyContent: state.currentMessage?.replyContent,
+        replyUser: {
+          userName: state.currentMessage.userName,
+          profileImage: state.currentMessage.profileImage,
+          replyContent: state.currentMessage.replyContent,
         },
       };
       state.messages = [...state.messages, newMessage];
