@@ -28,7 +28,8 @@
 
 ## 🎮&nbsp;&nbsp;구현 기능
 - 유저 네임 입력 기능
-    - 접속 시 대화창에서 사용할 유저 네임 입력 모달창 표시
+    - 접속 시 대화창에서 사용할 유저 네임 입력 모달창 표시<img width="833" alt="Screen Shot 2022-02-13 at 1 03 10 AM" src="https://user-images.githubusercontent.com/72786354/153718600-8baf81eb-23f1-4d55-b669-a5038938d99d.png">
+
     - 입력한 유저네임으로 대화창에서 메시지 전송
 - 메시지 입력기능
     - 메시지 입력 시 전송버튼 즉시 활성화
@@ -70,16 +71,20 @@
     - 초기세팅, 메시지 데이터 모델 정의
     - 초기세팅된 Redux의 reducer, action 정의 및 각자 맡은 영역에 적용
     - Vsc Liveshare를 활용해 페어프로그래밍 진행
+
  
 <br />
 
 ### 협업 툴
 
 - Figma: UI 구현
+    👉 [피그마 링크](https://www.figma.com/file/IuqotpBwrkPAjMyyBHp6Ic/Untitled?node-id=0%3A1) 
 - Discord, Vsc Liveshare: 실시간 소통 및 페어프로그래밍
 - Swit: 칸반보드를 활용한 업무 진행상황 공유
 
-<img width="574" alt="스크린샷 2022-02-12 오후 12 28 30" src="https://user-images.githubusercontent.com/67543454/153687915-9e6bf271-4e58-4e07-82b7-9a1d68e1bd3f.png">
+| Swit 협업툴 | 피그마 디자인 |
+| :------------: | :----------: |
+|<img width="574" alt="스크린샷 2022-02-12 오후 12 28 30" src="https://user-images.githubusercontent.com/67543454/153687915-9e6bf271-4e58-4e07-82b7-9a1d68e1bd3f.png">|<img width="500" alt="Screen Shot 2022-02-13 at 1 03 31 AM" src="https://user-images.githubusercontent.com/72786354/153718645-ecaba95a-fc5d-4706-b701-05679429637d.png">|
 
    
 <br />
