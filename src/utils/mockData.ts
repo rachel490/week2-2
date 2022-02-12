@@ -8,17 +8,6 @@ export const initialState = {
   currentMessage: null,
   messages: [
     {
-      id: 1781497,
-      date: 'Sat Feb 12 2022 00:01:59 GMT+0900 (한국 표준시)',
-      user: {
-        userId: 1,
-        userName: 'peter',
-        profileImage: 'assets/img/img.jpg',
-      },
-      content:
-        'hello! when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ce',
-    },
-    {
       id: 1781498,
       date: 'Sat Feb 12 2022 00:02:59 GMT+0900 (한국 표준시)',
       user: {
@@ -37,14 +26,36 @@ export const initialState = {
       },
     },
     {
+      id: 1781497,
+      date: 'Sat Feb 12 2022 00:01:59 GMT+0900 (한국 표준시)',
+      user: {
+        userId: 1,
+        userName: 'peter',
+        profileImage: 'assets/img/img.jpg',
+      },
+      content:
+        'hello! when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ce',
+    },
+    {
+      id: 1781466,
+      date: 'Sat Feb 12 2022 00:05:59 GMT+0900 (한국 표준시)',
+      user: {
+        userId: 2,
+        userName: 'Paul',
+        profileImage: 'assets/img/img2.jpg',
+      },
+      content: 'software like Aldus PageMaker',
+    },
+    {
       id: 1783022,
       date: 'Sat Feb 12 2022 00:03:59 GMT+0900 (한국 표준시)',
       user: {
         userId: 1,
-        userName: 'ellith',
-        profileImage: 'assets/img/img3.jpg',
+        userName: 'peter',
+        profileImage: 'assets/img/img.jpg',
       },
-      content: "for 'lorem ipsum' will uncover",
+      content:
+        'hello! when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ce',
     },
     {
       id: 1781496,
@@ -63,16 +74,6 @@ export const initialState = {
         replyContent:
           'hello! when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ce',
       },
-    },
-    {
-      id: 1781466,
-      date: 'Sat Feb 12 2022 00:05:59 GMT+0900 (한국 표준시)',
-      user: {
-        userId: 2,
-        userName: 'Paul',
-        profileImage: 'assets/img/img2.jpg',
-      },
-      content: 'software like Aldus PageMaker',
     },
   ],
 };

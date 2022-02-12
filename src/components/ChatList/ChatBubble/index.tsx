@@ -8,7 +8,7 @@ import Modal from 'components/shared/Modal';
 import RemoveMessageModal from 'components/RemoveMessageModal';
 import { useDispatch } from 'react-redux';
 import { selectedMessage } from 'store/messenger';
-import { Message } from '../mockData';
+import { Message } from 'store/types';
 import * as S from './styled';
 import ChatBubbleContent from '../ChatBubbleContent';
 

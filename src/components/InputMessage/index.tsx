@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ChatReplyBuble from 'components/ChatList/ChstReplyBubble';
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment, addNewMessage, selectedMessage } from 'store/messenger';
 import { RootState } from 'store/store';
 import { IoIosSend } from 'react-icons/io';
 import { TiDeleteOutline } from 'react-icons/ti';
 import theme from 'styles/defaultTheme';
+import ChatReplyBuble from 'components/ChatList/ChatReplyBubble';
 import * as S from './styled';
 
 function InputMessage() {
